@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const intent_list = new Discord.Intents(["GUILD_MEMBERS", "GUILD_MESSAGES", "GUILDS", "GUILD_INVITES"])
 const client = new Discord.Client({ ws: { intents: intent_list } })
-const token = "Nzg1MTQ1Mjg2NDIyMTY3NTUy.X8zlhw.4nsRDhJtReVxIKkwJg17xgBh_vc"
+const token = "Nzg1MTQ1Mjg2NDIyMTY3NTUy.X8zlhw._8RU9r3VS9R3IdHQPyd7dIpck7Y"
 const welcomeChannelName = "웰컴" 
 const byeChannelName = "웰컴" 
 const welcomeChannelComment = "어서오세요 :smile:" 
@@ -151,16 +151,6 @@ if (message.content == "!얼불춤 8th planet") {
       .setFooter("레벨 :14")
       .setColor("#57C00")
     message.channel.send(embed);
-}
-let verify = "790570795952111616"
-
-if(message.content.startsWith("/인증")) {
-  let member = message.mentions.users.first()
-  let _verifyRole = message.guild.roles.cache.find(r => r.id === verify).id
-  if(!member) return message.reply("/인증 <유저멘션> 이 올바른 명령어입니다.")
-  if(!_verifyRole) return message.reply("존재하지 않는 역할입니다.")
-  member.roles.add(_verifyRole).catch((error) => message.reply("오류가 발생했습니다.\n" + error))
-  message.reply("해당 유저에게 인증 역할을 지급하였습니다.")
 
 }
 if (message.content == "!얼불춤 Dog Bite") { 
@@ -184,6 +174,15 @@ if(message.content == `!귤묵자`) {
 const Response = Math.floor(Math.random() * number.length);
 
 message.channel.send(`${number[Response]}`)
+}
+let verify = "790571691902238811" // 인증 역할 아이디
+if(message.content.startsWith("/인증")) {
+  let member = message.mentions.users.first()
+  let _verifyRole = message.guild.roles.cache.find(r => r.id === verify).id
+  if(!member) return message.reply("/인증 <유저멘션> 이 올바른 명령어입니다.")
+  if(!_verifyRole) return message.reply("존재하지 않는 역할입니다.")
+  member.roles.add(_verifyRole).catch((error) => message.reply("오류가 발생했습니다.\n" + error))
+  message.reply("해당 유저에게 인증 역할을 지급하였습니다.")
 }
 
 if (message.content == "!얼불춤 Shiver") { 
