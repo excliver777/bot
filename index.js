@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const intent_list = new Discord.Intents(["GUILD_MEMBERS", "GUILD_MESSAGES", "GUILDS", "GUILD_INVITES"])
 const client = new Discord.Client({ ws: { intents: intent_list } })
-const token = process.env.token;
+const token = "Nzg1MTQ1Mjg2NDIyMTY3NTUy.X8zlhw.4nsRDhJtReVxIKkwJg17xgBh_vc"
 const welcomeChannelName = "웰컴" 
 const byeChannelName = "웰컴" 
 const welcomeChannelComment = "어서오세요 :smile:" 
@@ -154,7 +154,7 @@ if (message.content == "!얼불춤 8th planet") {
 }
 let verify = "790206212884922448" 
 if(message.content.startsWith("/인증")) {
-   if(message.member.roles.cache.find(x => x.id === Vertify)) {
+   if(message.member.roles.cache.find(x => x.id === vertify)) {
      message.member.roles.add(verify)
     .then(user => {
       let embed = new Discord.MessageEmbed()
