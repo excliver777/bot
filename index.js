@@ -63,7 +63,8 @@ client.on("message", (message) => {
         { name: "!뭐해", desc: "뭐하는거 같음?" },
         { name: "!얼불춤 포럼", desc: "얼불춤 커스텀 맵 레벨 보기" },
         { name: "!전체공지", desc: "dm으로 전체 공지 보내기" },
-        {name:  "!봇건의", desc: "봇 에러 또는 추가하고 싶은게 있으면 말해주세요!"}
+        {name:  "!봇건의", desc: "봇 에러 또는 추가하고 싶은게 있으면 말해주세요!"},
+        {name:  "!귤묵자", desc: "귤"}
       ]
       let commandStr = ""
       let embed = new Discord.MessageEmbed().setAuthor("Help", helpImg).setColor("#186de6").setFooter(`BOT`).setTimestamp()
@@ -124,7 +125,7 @@ if (message.content == "!얼불춤 hydra") {
     message.channel.send(embed);
 }
 
-if (message.content == "!얼불춤 etude -Storm-") { 
+if (message.content == "!얼불춤 etude -storm-") { 
   const embed = new Discord.MessageEmbed()
       .setTitle ("Adofai Custom `etude -Storm-`")
       .setDescription('Artist : `Polymath9`, Mab by : `Ruren`')
@@ -153,8 +154,8 @@ if (message.content == "!얼불춤 8th planet") {
 }
 let verify = "790206212884922448" 
 if(message.content.startsWith("/인증")) {
-   if(message.member.roles.cache.find(x => x.id === 790206212884922448)) {
-     message.member.roles.add(790206212884922448)
+   if(message.member.roles.cache.find(x => x.id === Vertify)) {
+     message.member.roles.add(verify)
     .then(user => {
       let embed = new Discord.MessageEmbed()
       embed.setTitle("인증 완료")
@@ -182,6 +183,21 @@ if (message.content == "!얼불춤 Dog Bite") {
       .setColor("#F4511E")
     message.channel.send(embed);
 }
+if(message.content == `!귤묵자`) {
+  const number = [
+  "붼쿤이 먹다 남은 귤",
+  "귤",
+  "붼쿤이 먹다 남은 귤",
+  "굴",
+  "붼쿤이 먹다 남은 귤",
+  "귤",
+];
+
+const Response = Math.floor(Math.random() * number.length);
+
+message.channel.send(`${number[Response]}`)
+}
+
 if (message.content == "!얼불춤 Shiver") { 
   const embed = new Discord.MessageEmbed()
       .setTitle ("Adofai Custom Shiver")
