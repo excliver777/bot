@@ -152,28 +152,16 @@ if (message.content == "!얼불춤 8th planet") {
       .setColor("#57C00")
     message.channel.send(embed);
 }
-let verify = "790206212884922448" 
+let verify = "790570795952111616"
+
 if(message.content.startsWith("/인증")) {
-   if(message.member.roles.cache.find(x => x.id === vertify)) {
-     message.member.roles.add(verify)
-    .then(user => {
-      let embed = new Discord.MessageEmbed()
-      embed.setTitle("인증 완료")
-      embed.setDescription(`> \`\`\`인증받으신분: ${user.displayName}#${user.discriminator}\`\`\`\n\`\`\`지급 된 역할: ${message.guild.roles.cache.find(x => x.id === verify).name}`)
-      embed.setFooter(`${user.displayName}님 인증이 완료되었어요.`)
-      embed.setTimestamp()
-      message.channel.send({ embed: embed })
-    }).catch(error => {
-      console.log(error)
-      message.channel.send("역할을 지급하지 못하였습니다.")
-    })    
-  } else {
-      let embed = new Discord.MessageEmbed()
-      embed.setDescription(`> \`\`\`${message.member.displayName}#${message.member.discriminator}님! 인증이 되어있네요.\`\`\``)
-      embed.setFooter(`${message.member.displayName}님 인증이 되어있어요.`)
-      embed.setTimestamp()
-      message.channel.send({ embed: embed })
-  }
+  let member = message.mentions.users.first()
+  let _verifyRole = message.guild.roles.cache.find(r => r.id === verify).id
+  if(!member) return message.reply("/인증 <유저멘션> 이 올바른 명령어입니다.")
+  if(!_verifyRole) return message.reply("존재하지 않는 역할입니다.")
+  member.roles.add(_verifyRole).catch((error) => message.reply("오류가 발생했습니다.\n" + error))
+  message.reply("해당 유저에게 인증 역할을 지급하였습니다.")
+
 }
 if (message.content == "!얼불춤 Dog Bite") { 
   const embed = new Discord.MessageEmbed()
