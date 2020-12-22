@@ -52,6 +52,10 @@ client.on("guildMemberRemove", (member) => {
   byeChannel.send(`<@${deleteUser.id}> ${byeChannelComment}\n`)
 })
 
+client.on("messageUpdate", (message) => {
+  MessageSave(message, true)
+});
+
 client.on('message', (message) => {
   MessageSave(message)
   if(message.author.bot) return;
@@ -71,6 +75,7 @@ client.on('message', (message) => {
       message.member.guild.members.find(x => x.id == userId).addRole(role);
     }
   }
+
 
   if (message.content == "!나이" || message.content == '몆살' || message.content == '몆살?' || message.content == '몇살' || message.content == '몇살?' || message.content == '나이?') {
     return message.reply("다섯살이야");
