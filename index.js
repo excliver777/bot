@@ -113,6 +113,7 @@ if (message.content == "!얼불춤 [ns]") {
       .setFooter("레벨 : 20")
       .setColor("#000000")
     message.channel.send(embed);
+
 }
 
 if (message.content == "!얼불춤 hydra") { 
@@ -142,7 +143,9 @@ if (message.content == "!얼불춤 19ZZ") {
       .setFooter("레벨 :16")
       .setColor("#E53935")
     message.channel.send(embed);
+
 }
+
 if (message.content == "!얼불춤 8th planet") { 
   const embed = new Discord.MessageEmbed()
       .setTitle ("Adofai Custom 8th planet")
@@ -175,7 +178,9 @@ const Response = Math.floor(Math.random() * number.length);
 
 message.channel.send(`${number[Response]}`)
 }
-let verify = "790571691902238811" // 인증 역할 아이디
+
+  let verify = "790562687783665695"
+
 if(message.content.startsWith("/인증")) {
   let member = message.mentions.users.first()
   let _verifyRole = message.guild.roles.cache.find(r => r.id === verify).id
