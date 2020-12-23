@@ -4,13 +4,5 @@
   "main": "index.js",
   "scripts": {
     "r": "node index.js"
-  },
-  "dependencies": {
-    "discord.js": "^12.4.1",
-    "module": "^1.2.5",
-    "moment": "^2.29.1",
-    "moment-duration-format": "^2.3.2",
-    "moment-timezone": "^0.5.32",
-    "package": "^1.0.1"
   }
 }
