@@ -2,7 +2,7 @@
 const Discord = require("discord.js");
 const intent_list = new Discord.Intents(["GUILD_MEMBERS", "GUILD_MESSAGES", "GUILDS", "GUILD_INVITES"])
 const client = new Discord.Client({ ws: { intents: intent_list } })
-const token = process.token.env; 
+const token = process.env.token
 const welcomeChannelName = "웰컴" 
 const byeChannelName = "웰컴" 
 const welcomeChannelComment = "어서오세요 :smile:" 
