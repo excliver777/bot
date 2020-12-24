@@ -4,5 +4,10 @@
   "main": "index.js",
   "scripts": {
     "r": "node index.js"
-  }
+  },
+"author": "",
+"license": "ISC",
+"dependencies": {
+  "discord.js": "^12.4.1"
+ }
 }

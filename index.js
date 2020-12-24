@@ -1,3 +1,4 @@
+
 const Discord = require("discord.js");
 const intent_list = new Discord.Intents(["GUILD_MEMBERS", "GUILD_MESSAGES", "GUILDS", "GUILD_INVITES"])
 const client = new Discord.Client({ ws: { intents: intent_list } })
@@ -8,13 +9,10 @@ const welcomeChannelComment = "어서오세요 :smile:"
 const byeChannelComment = "안녕히가세요 ㅠㅠ :cry:" 
 const roleName = "" 
 
-
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ activity: { name: "!도움말 처보세요!" }, status: "online" })
+  client.user.setPresence({ activity: { name: "!도움말 치거라" }, status: "online" })
 })
-
-
 
 client.on("guildMemberAdd", (member) => {
   const guild = member.guild
@@ -33,8 +31,13 @@ client.on("guildMemberRemove", (member) => {
   byeChannel.send(`<@${deleteUser.id}> ${byeChannelComment}\n`)
 })
 
-client.on('message', (message) => {
-  if(message.author.bot) return;
+client.on('message', async message => {   
+  if (message.author.bot) return;  
+
+  if(message.content === "!핑"){ 
+    message.channel.send(`🏓\`${Date.now() - message.createdTimestamp}\`ms`);
+  }
+
 
   if(message.content.startsWith('!역할추가')) {
     if(message.channel.type == 'dm') {
@@ -84,7 +87,8 @@ client.on('message', (message) => {
         { name: "!얼불춤 포럼", desc: "얼불춤 커스텀 맵 레벨 보기" },
         { name: "!전체공지", desc: "dm으로 전체 공지 보내기" },
         {name:  "!봇건의", desc: "봇 에러 또는 추가하고 싶은게 있으면 말해주세요!"},
-        {name:  "!귤묵자", desc: "귤"}
+        {name:  "!귤묵자", desc: "귤"},
+        {name: "!핑", desc: "퐁 드림"}
       ]
       let commandStr = ""
       let embed = new Discord.MessageEmbed().setAuthor("Help", helpImg).setColor("#186de6").setFooter(`BOT`).setTimestamp()
@@ -123,8 +127,6 @@ if (message.content == "!얼불춤 tripple cross") {
       .setColor("#E53935")
     message.channel.send(embed);
 }
-
-
 if (message.content == "!얼불춤 [ns]") { 
   const embed = new Discord.MessageEmbed()
       .setTitle ("Adofai Custom `[ns]`")
